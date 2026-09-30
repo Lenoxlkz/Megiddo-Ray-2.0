@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --color-glass-base: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.18);
+  --color-glass-highlight: rgba(255, 255, 255, 0.28);
+}
+
+@layer utilities {
+  /* StarOS Liquid Frosted Glass (Ultra-transparent, optimized for 60fps performance) */
+  .staros-glass {
+    background: rgba(16, 20, 18, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.18), 0 16px 40px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .staros-glass-card {
+    background: rgba(14, 18, 16, 0.78);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.14), 0 16px 40px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  .staros-glass-pill {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.16), 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  .liquid-glass {
+    background: rgba(16, 20, 18, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  
+  .liquid-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .liquid-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.10);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  
+  .liquid-button:hover::before {
+    opacity: 1;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* Base Body: AMOLED Dark by default */
+body {
+  background-color: #000000;
+  color: #e2e8f0; /* Gentle slate white/gray to prevent eye strain */
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* AMOLED Modo Oscuro */
+html[data-theme="dark"] body,
+body[data-theme="dark"] {
+  background-color: #000000 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Modo Claro: Fondo claro suave (no blanco deslumbrante) con texto en negro nítido */
+html[data-theme="light"] body,
+body[data-theme="light"],
+.light body {
+  background-color: #edf1eb !important;
+  color: #111827 !important;
+}
+
+/* Overrides for Light Mode to make all elements crisp with dark text */
+[data-theme="light"] .staros-glass {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.07), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .staros-glass-card {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme="light"] .staros-glass-pill {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+  color: #1f2937 !important;
+}
+
+[data-theme="light"] .liquid-glass {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+/* Text colors in Light Mode: crisp blacks and dark slates */
+[data-theme="light"] .text-white,
+[data-theme="light"] .text-white\/90,
+[data-theme="light"] .text-white\/80,
+[data-theme="light"] .text-white\/70,
+[data-theme="light"] .text-neutral-100,
+[data-theme="light"] .text-neutral-200 {
+  color: #111827 !important;
+}
+
+[data-theme="light"] .text-neutral-300,
+[data-theme="light"] .text-neutral-300\/80 {
+  color: #374151 !important;
+}
+
+[data-theme="light"] .text-neutral-400,
+[data-theme="light"] .text-neutral-500 {
+  color: #4b5563 !important;
+}
+
+[data-theme="light"] .border-white\/10,
+[data-theme="light"] .border-white\/15,
+[data-theme="light"] .border-white\/20,
+[data-theme="light"] .border-white\/25,
+[data-theme="light"] .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="light"] .bg-white\/\[0\.04\],
+[data-theme="light"] .bg-white\/\[0\.05\],
+[data-theme="light"] .bg-white\/\[0\.06\],
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/10,
+[data-theme="light"] .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="search"] {
+  color: #111827 !important;
+}
+
+[data-theme="light"] input[type="text"]::placeholder {
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .bg-clip-text {
+  background-image: linear-gradient(to right, #0f172a, #1e293b, #334155) !important;
+}
+
+[data-theme="light"] .custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+

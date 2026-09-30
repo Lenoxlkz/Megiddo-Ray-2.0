@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#10b981" flood-opacity="0.4" />
+    </filter>
+  </defs>
+  
+  <!-- Rounded Background Container -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)" />
+  <rect width="500" height="500" x="6" y="6" rx="109" fill="none" stroke="#34d399" stroke-opacity="0.3" stroke-width="4" />
+  
+  <!-- Liquid Drop / Fast Download Dynamic Symbol -->
+  <g filter="url(#glow)">
+    <!-- Liquid drop contour -->
+    <path d="M256 90 C256 90, 150 230, 150 315 C150 375, 197 422, 256 422 C315 422, 362 375, 362 315 C362 230, 256 90, 256 90 Z" fill="url(#liquidGrad)" />
+    
+    <!-- Inner Download Arrow & Speed Rays -->
+    <path d="M256 185 L256 310 M210 270 L256 316 L302 270" fill="none" stroke="#022c22" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Bottom Speed Tray -->
+    <line x1="200" y1="360" x2="312" y2="360" stroke="#022c22" stroke-width="24" stroke-linecap="round" />
+    
+    <!-- Accent Highlight -->
+    <ellipse cx="225" cy="210" rx="16" ry="32" transform="rotate(-30 225 210)" fill="#ffffff" fill-opacity="0.45" />
+  </g>
+</svg>
