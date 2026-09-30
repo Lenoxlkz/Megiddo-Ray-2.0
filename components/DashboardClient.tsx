@@ -1,5 +1,3 @@
-
-[...]
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-white/10">
                         {/* 1. Local Download Button */}
                         <motion.button
@@ -92,4 +90,3 @@
                           </div>
                         </motion.button>
                       </div>
-[...]
